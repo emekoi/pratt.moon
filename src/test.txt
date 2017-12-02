@@ -1,0 +1,7 @@
+func main(argc, argv)
+  print("WHAT'S YOUR NAME? ");
+  var name = read();
+  for i, 10
+    print("HELLO " + name);
+  end
+end
