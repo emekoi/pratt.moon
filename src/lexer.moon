@@ -30,12 +30,25 @@ lexer.next = () =>
   if lexer.end(@) then nil
   @source[@tail + 1]
 
-lexer.match = (c) =>
+lexer.match = (char) =>
   if lexer.end(@) then return false
-  if @source[@tail] ~= c then return false
-  @tail += 1
+  tail = @tail
+  for i = 1, #char
+    if @source[tail] ~= char[i] then return false
+    tail += 1
+  @tail = tail
   return true
+  
 
+match = (char) ->
+  if idx == str\len! then return false
+  o = idx
+  
+    if str[o] ~= char[i] then return false
+    o += 1
+  idx = o
+
+  return true
 lexer.err = (msg) =>
   ("[{line}:{col}] " % @) + msg
 
